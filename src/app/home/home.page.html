@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Acme Vet</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+
+        <ion-item lines="full">
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input formControlName="nombre" type="text"></ion-input>
+        </ion-item>
+
+        <span class="error ion-padding" color="primary" *ngIf="isSubmitted && errorControl.nombre.errors?.required">
+        El nombre es Requerido.
+        </span>
+
+        <span class="error ion-padding" color="primary" *ngIf="isSubmitted && errorControl.nombre.errors?.minlength">
+            El nombre debe tener un mínimo de 2 caracteres.
+        </span>
+
+
+        <ion-item lines="full">
+            <ion-label position="floating">Cantidad</ion-label>
+            <ion-input formControlName="cantidad" type="text" required></ion-input>
+        </ion-item>
+
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.cantidad.errors?.required">
+         La cantidad es requerida.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.cantidad.errors?.pattern">
+         Solo se permiten valores numéricos.
+        </span>
+
+
+        <ion-row>
+            <ion-col>
+                <ion-button type="submit" color="success" expand="block" [disabled]="!this.ionicForm.valid">
+                    <ion-icon name="navigate-outline"></ion-icon>
+                    <strong>ENVIAR</strong>
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </form>
+</ion-content>

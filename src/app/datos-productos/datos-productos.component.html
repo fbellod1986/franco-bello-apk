@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Acme Vet</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form novalidate>
+        <ion-item lines="full">
+            <ion-input type="text">{{ nombreProducto }}</ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-input type="text" required>{{ cantidadProducto }}</ion-input>
+        </ion-item>
+
+        <ion-row>
+            <ion-col>
+                <ion-button (click)="volver();" color="success" expand="block">
+                    <ion-icon name="arrow-back-outline"></ion-icon>
+                    <strong>VOLVER</strong>
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </form>
+</ion-content>
